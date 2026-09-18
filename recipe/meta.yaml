@@ -1,5 +1,5 @@
 {% set name = "colcon-output" %}
-{% set version = "0.2.14" %}
+{% set version = "0.2.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/colcon/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 005887f0289b5b4a457fe78c1da185af9a30f4e8a892d0367c8f7f6053a4d1e0
+  sha256: 5e3fc56ff50e0ce894ae912a8a2225fc6349e9bc8eb7b6e1c9d472416e35406a
 
 build:
   number: 0
