@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: colcon-output
+  version: "0.2.15"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/colcon/${{ name }}/archive/${{ version }}.tar.gz
+  sha256: 5e3fc56ff50e0ce894ae912a8a2225fc6349e9bc8eb7b6e1c9d472416e35406a
+
+build:
+  number: 0
+  script: python -m pip install . -vv
+  noarch: python
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - colcon-core >=0.3.8
+
+tests:
+  - python:
+      imports:
+        - colcon_output
+      python_version: ${{ python_min }}.*
+
+about:
+  homepage: https://github.com/colcon/${{ name }}
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: |
+    An extension for colcon-core to customize the output in various ways.
+
+extra:
+  recipe-maintainers:
+    - j-rivero
+    - seanyen
+    - wolfv
